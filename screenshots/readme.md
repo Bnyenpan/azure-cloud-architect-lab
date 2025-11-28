@@ -1,3 +1,7 @@
+<img width="947" height="298" alt="07-allowed-locations-root" src="https://github.com/user-attachments/assets/89d2c780-51cd-427b-aff4-6d38967cfa0f" />
+<img width="950" height="326" alt="06-required-tag-environment-root" src="https://github.com/user-attachments/assets/13a634a8-e5ab-4182-b623-ac08f7ac79de" />
+<img width="949" height="325" alt="05-rbac-role-assignments" src="https://github.com/user-attachments/assets/c9519483-4739-4fa8-8847-832606295c1e" />
+<img width="946" height="374" alt="04-azure-policy-compliance" src="https://github.com/user-attachments/assets/a65c2cf3-8910-4f10-88ee-9d90f1d4e9af" />
 md
 # Screenshots
 This folder contains all architecture screenshots for my Azure Cloud Architect lab.
