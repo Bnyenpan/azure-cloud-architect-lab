@@ -1,167 +1,114 @@
-Week 2 – Entra ID + Intune Zero Trust Security Foundation
+🚀 Week 2 – Entra ID + Intune Zero Trust Security Foundation
 
-This week focuses on implementing identity protection, device compliance, and Zero Trust controls using Microsoft Entra ID and Microsoft Intune.
+This week focused on building the identity and device management foundation required for an enterprise-grade Zero Trust architecture using Microsoft Entra ID and Microsoft Intune.
+The objective was to design a secure identity model, enforce MFA, implement Conditional Access, configure device enrollment, and establish compliance controls that dictate how trusted devices access cloud resources.
 
-🔐 1. Identity Architecture (Entra ID)
-Users & Identity Roles Created
+🔐 1. Identity Architecture (Microsoft Entra ID)
+📌 What I Did
 
+Created a full identity hierarchy including:
 Cloud Administrator
-
 Intune Administrator
-
 Helpdesk Technician
-
 Standard Employees
+Test Users
 
-Test Users for CA validation
-
-Key Learnings
-
-Role separation improves security
-
-Test users help validate real-world policy behavior
-
-Administrative accounts must be isolated
-
-Security Groups Created
+Created RBAC-driven security groups for scalable management:
 
 grp-all-users
-
 grp-intune-users
-
 grp-windows-devices
-
 grp-mfa-required
-
 grp-cloud-admins
-
 grp-autopilot-devices
-
 Break-glass exclusion group
 
-Key Learnings
+📘 What I Learned
 
-Identity governance relies heavily on group-based targeting
+Identity architecture must separate privileged and non-privileged accounts.
+Administrators should always have a secondary emergency (break-glass) account with MFA/CA exclusions to avoid tenant lockouts.
+Groups are the core of enterprise identity governance:
+CA policies target groups
+Compliance policies target groups
+App assignments target groups
+RBAC is built around groups
+This ensures a scalable, secure, centralized identity model used in real organizations.
 
-CA, compliance, and app deployments become scalable with RBAC groups
+🔒 2. Conditional Access – Zero Trust Policy Framework
+📌 What I Did
 
-MFA Registration (Tenant-Wide)
-
-Mandatory MFA registration enabled
-
-Authentication Methods → Registration Campaign configured
-
-Break-glass accounts excluded
-
-Key Learnings
-
-MFA is the first pillar of Zero Trust
-
-Emergency accounts must bypass MFA to avoid lockout scenarios
-
-
-🔒 2. Conditional Access Security Model
+I implemented a modern CA security stack:
 Policies Implemented
-
 Require MFA for all users
-
 Require compliant device
-
 Block legacy authentication
-
-Location-based filtering
-
+Country-based access controls
 Break-glass exclusions
 
 Testing
+Verified all policies through Entra Sign-In Logs
+Observed MFA prompts, compliant-device requirements, and legacy auth blocks
 
-Verified enforcement using Entra Sign-In Logs
+📘 What I Learned
 
-Checked grant controls, session controls, and policy evaluation paths
+Conditional Access enforces Zero Trust by evaluating:
+user identity
+device posture
+risk level
+location
+app being accessed
+Legacy protocols bypass MFA and pose risk → must be blocked
+CA decisions happen during token issuance, not during password entry
+Sign-in logs are essential for troubleshooting misconfigurations
+This is the same architecture major enterprises use to secure identity access.
 
-Key Learnings
+💻 3. Intune Device Enrollment & Platform Restrictions
+📌 What I Did
 
-CA is enforced after authentication, during token issuance
-
-Policy layering ensures secure access based on device + identity
-
-Sign-in logs are critical for troubleshooting
-
-
-💻 3. Intune Device Enrollment & Compliance
-Enrollment Steps Completed
-
-Windows enrollment
-
-Enrollment restrictions configured
-
-Device Categories:
-
+Configured Windows enrollment
+Created enrollment restrictions:
+Block personal Windows enrollment
+Allow only Android Enterprise (block Android Device Admin)
+Allow macOS & iOS
+Created device categories:
 Production
-
 Non-Production
+BYOD (Personal)
 
-BYOD
+📘 What I Learned
 
-Key Learnings
+Enrollment restrictions prevent unmanaged or outdated devices from entering the environment
+Device categories help automate:
+compliance targeting
+app deployments
+Autopilot assignments
+CA enforcement
+Modern device onboarding starts with clear governance: what is allowed vs blocked
+This ensures corporate devices remain the only trusted endpoints.
 
-Device categories help automate app deployments & CA targeting
+🛡 4. Compliance Baseline – Enforcing Device Security
+📌 What I Did
 
-Blocking personal Windows improves corporate governance
-
-Windows Compliance Baseline
-
-Policy Name: NL-Windows-Compliance-Baseline
-
-Compliance Checks Enabled
-
-BitLocker required
-
-Secure Boot enabled
-
-TPM required
-
+Created a Windows 10/11 compliance policy that requires:
+BitLocker drive encryption
+Secure Boot
 Firewall enabled
-
-Antivirus + Real-time protection
-
+Defender Antivirus + real-time protection
 Password complexity
-
+TPM presence
 Device health attestation
-
-Assignments
-
+Noncompliance marking after 1 day
+Assigned to:
 grp-intune-users
-
 grp-windows-devices
 
-Verification
+📘 What I Learned
 
-Devices correctly marked compliant / noncompliant
-
-CA policies enforced based on compliance state
-
-📸 Included Screenshots
-
-Entra Users
-
-Entra Groups
-
-MFA Registration
-
-Conditional Access list
-
-Individual CA Policies
-
-Sign-In logs
-
-Windows Enrollment
-
-Enrollment Restrictions
-
-Device Categories
-
-Compliance Policy + Assignments
+Compliance policies determine which devices are “trusted”
+Conditional Access uses compliance state to allow or block access
+This creates resource access that is identity + device + security posture aware
+Device compliance is the backbone of Zero Trust endpoint security
+This mirrors how enterprises validate device health before granting access.
 
 
 <img width="1902" height="962" alt="CA_policy" src="https://github.com/user-attachments/assets/5914e235-d674-4159-ab92-1f0f24ba1af8" />
