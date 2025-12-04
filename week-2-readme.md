@@ -4,7 +4,9 @@ This week focused on building the identity and device management foundation requ
 The objective was to design a secure identity model, enforce MFA, implement Conditional Access, configure device enrollment, and establish compliance controls that dictate how trusted devices access cloud resources.
 
 🔐 1. Identity Architecture (Microsoft Entra ID)
+
 📌 What I Did
+
 
 Created a full identity hierarchy including:
 Cloud Administrator
@@ -14,7 +16,6 @@ Standard Employees
 Test Users
 
 Created RBAC-driven security groups for scalable management:
-
 grp-all-users
 grp-intune-users
 grp-windows-devices
@@ -35,6 +36,7 @@ RBAC is built around groups
 This ensures a scalable, secure, centralized identity model used in real organizations.
 
 🔒 2. Conditional Access – Zero Trust Policy Framework
+
 📌 What I Did
 
 I implemented a modern CA security stack:
@@ -63,6 +65,7 @@ Sign-in logs are essential for troubleshooting misconfigurations
 This is the same architecture major enterprises use to secure identity access.
 
 💻 3. Intune Device Enrollment & Platform Restrictions
+
 📌 What I Did
 
 Configured Windows enrollment
@@ -87,6 +90,7 @@ Modern device onboarding starts with clear governance: what is allowed vs blocke
 This ensures corporate devices remain the only trusted endpoints.
 
 🛡 4. Compliance Baseline – Enforcing Device Security
+
 📌 What I Did
 
 Created a Windows 10/11 compliance policy that requires:
