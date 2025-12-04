@@ -59,6 +59,7 @@ MFA is the first pillar of Zero Trust
 
 Emergency accounts must bypass MFA to avoid lockout scenarios
 
+
 🔒 2. Conditional Access Security Model
 Policies Implemented
 
@@ -85,6 +86,7 @@ CA is enforced after authentication, during token issuance
 Policy layering ensures secure access based on device + identity
 
 Sign-in logs are critical for troubleshooting
+
 
 💻 3. Intune Device Enrollment & Compliance
 Enrollment Steps Completed
